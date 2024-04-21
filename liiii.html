@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartu Ulang Tahun Romantis</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#pertanyaan {
+  display: none;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.popup-content {
+  margin: 15% auto;
+  width: 80%;
+  max-width: 500px;
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tombol {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Selamat Ulang Tahun!</h1>
+  <p>Hai, saya punya pertanyaan untukmu:</p>
+  <button class="tombol" onclick="tampilkanPertanyaan()">Klik di sini</button>
+
+  <div id="pertanyaan">
+    <p>Apakah kamu mau menjadi pasanganku?</p>
+    <button class="tombol" onclick="jawabPertanyaan('ya')">Ya</button>
+    <button class="tombol" onclick="jawabPertanyaan('tidak')">Tidak</button>
+  </div>
+
+  <div id="jawaban" class="popup">
+    <div class="popup-content">
+      <h2>Jawaban</h2>
+      <p id="hasil-jawaban"></p>
+      <button class="tombol" onclick="tutupPopup()">Tutup</button>
+    </div>
+  </div>
+
+  <div id="foto" style="display:none;">
+    <h2>Foto Ulang Tahun Romantis</h2>
+    <img src="https://imgur.com/Fnp33LN.jpg" alt="Foto Ulang Tahun Romantis" style="max-width: 100%;">
+  </div>
+</div>
+
+<script>
+function tampilkanPertanyaan() {
+  document.getElementById('pertanyaan').style.display = 'block';
+}
+
+function jawabPertanyaan(jawaban) {
+  var hasil = document.getElementById('hasil-jawaban');
+  if (jawaban === 'ya') {
+    hasil.textContent = 'Aku juga sayang kamu!';
+    document.getElementById('foto').style.display = 'block'; // Menampilkan foto setelah jawaban
+  } else {
+    hasil.textContent = 'Oh, mungkin lain kali ya...';
+  }
+  document.getElementById('jawaban').style.display = 'block';
+}
+
+function tutupPopup() {
+  document.getElementById('jawaban').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
